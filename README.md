@@ -4,15 +4,16 @@ Make Git Commit Messages Great Again!
 
 ## How to
 
-1. Download [trumpmit.py](https://github.com/thewarpaint/trumpmit/blob/master/trumpmit.py)
+1. Download [trumpmit.py](https://github.com/thewarpaint/trumpmit/blob/master/trumpmit.py), place it
+   somewhere in your `$PATH` list and run `$ chmod +x` on it.
 
 2. Add the `git` alias:
 
 ```sh
-$ git config --global alias.trumpmit '!git commit -m "$(./trumpmit.py)"'
+$ git config --global alias.trumpmit '!git commit -m "$(trumpmit.py)"'
 ```
 
-3. Do the `git add ...` part and then get a great, wonderful, yuge commit message:
+3. Add your files with `git add ...` and then get a great, wonderful, yuge commit message:
 
 ```sh
 $ git trumpmit
