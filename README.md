@@ -1,5 +1,7 @@
 # `git trumpmit`!
 
+Make Git Commit Messages Great Again!
+
 ## How to
 
 1. Download [trumpmit.py](https://github.com/thewarpaint/trumpmit/blob/master/trumpmit.py)
@@ -24,3 +26,7 @@ $ git trumpmit
 4. ???
 
 5. PROFIT!
+
+## Wanna try before you buy?
+
+[Use the simulator!](https://thewarpaint.github.io/trumpmit/)
