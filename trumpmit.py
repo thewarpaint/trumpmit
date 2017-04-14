@@ -7,4 +7,4 @@ request = requests.get(url='https://raw.githubusercontent.com/thewarpaint/trumpm
 data = request.json()
 quote = data[randint(0, len(data) - 1)]
 
-print('git commit -m "%s"' % quote['text'])
+print(quote['text'])
