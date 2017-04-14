@@ -16,7 +16,7 @@ $ git config --global alias.trumpmit '!git commit -m "$(./trumpmit.py)"'
 $ git trumpmit
 
 [master abc123d] I inherited a MESS and am in the process of fixing it.
- 666 files changed, 43 insertions(+), 1 deletion(-)
+ 666 files changed, 1776 insertions(+), 43 deletions(-)
  create mode 100644 README.md
  mode change 100644 => 100755 trumpmit.py
 ```
