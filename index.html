@@ -4,30 +4,42 @@
   <title>git trumpmit!</title>
 
   <script type="text/javascript">
-    let messages;
+    var messages;
+    var dataURL = 'https://raw.githubusercontent.com/thewarpaint/trumpmit/master/data.json';
 
     document.addEventListener('DOMContentLoaded', function(event) {
-      fetch('https://raw.githubusercontent.com/thewarpaint/trumpmit/master/data.json')
-      .then((response) => {
-        response.json().then((data) => {
-          messages = data;
-          renderRandomMessage();
-        });
-      });
+      renderMessage('Loading...');
+
+      var request = new XMLHttpRequest();
+      request.addEventListener('load', onSuccess);
+      request.open('GET', dataURL);
+      request.send();
     });
 
+    function init(data) {
+      messages = data;
+      renderRandomMessage();
+    }
+
+    function onSuccess() {
+      init(JSON.parse(this.responseText));
+    }
+
+    function renderMessage(message) {
+      document.getElementById('console').textContent = getCommitMessage(message);
+    }
+
     function renderRandomMessage() {
-      let index = Math.floor(Math.random() * messages.length);
-      document.getElementById('console').textContent = getCommitMessage(messages[index]);
+      var index = Math.floor(Math.random() * messages.length);
+      renderMessage(messages[index].text);
     }
 
     function getCommitMessage(message) {
-      return `$ git trumpmit
-
-[master abc123d] ${ message.text }
- 666 files changed, 1776 insertions(+), 43 deletions(-)
- create mode 100644 README.md
- mode change 100644 => 100755 trumpmit.py`;
+      return '$ git trumpmit\n\n' +
+             '[master abc123d] ' + message + '\n' +
+             ' 666 files changed, 1776 insertions(+), 43 deletions(-)\n' +
+             ' create mode 100644 README.md\n' +
+             ' mode change 100644 => 100755 trumpmit.py';
     }
   </script>
 </head>
