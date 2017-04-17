@@ -1,4 +1,4 @@
-# `git trumpmit`!
+# `git trumpmit`
 
 Make Git Commit Messages Great Again!
 
