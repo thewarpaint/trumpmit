@@ -8,6 +8,7 @@
 
   <script type="text/javascript">
     var messages;
+    var currentIndex = 0;
     var dataURL = 'https://thewarpaint.github.io/trumpmit/data.json';
 
     document.addEventListener('DOMContentLoaded', function(event) {
@@ -21,7 +22,7 @@
 
     function init(data) {
       messages = data;
-      renderRandomMessage();
+      renderNextMessage();
     }
 
     function onSuccess() {
@@ -32,9 +33,9 @@
       document.getElementById('console').textContent = getCommitMessage(message);
     }
 
-    function renderRandomMessage() {
-      var index = Math.floor(Math.random() * messages.length);
-      renderMessage(messages[index].text);
+    function renderNextMessage() {
+      renderMessage(messages[currentIndex].text);
+      currentIndex = (currentIndex + 1) % messages.length;
     }
 
     function getCommitMessage(message) {
@@ -49,7 +50,7 @@
 <body>
   <pre id="console" style="background: #272822; color: #f8f8f2; padding: .5rem; overflow-x: scroll;"></pre>
 
-  <button type="button" onclick="renderRandomMessage();"
+  <button type="button" onclick="renderNextMessage();"
     style="padding: .5rem .75rem; font-size: .85rem;">Again!</button>
 
   <p><a href="https://github.com/thewarpaint/trumpmit#how-to">Install it now!</a></p>
